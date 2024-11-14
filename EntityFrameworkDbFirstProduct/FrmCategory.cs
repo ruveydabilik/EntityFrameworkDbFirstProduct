@@ -60,5 +60,11 @@ namespace EntityFrameworkDbFirstProduct
             txtCategoryId.Text = "";
             CategoryList();
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var values = db.TblCategory.Where(x => x.CategoryName == txtCategoryName.Text).ToList();
+            dataGridView.DataSource = values;
+        }
     }
 }
